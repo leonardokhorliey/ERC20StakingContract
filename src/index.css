@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.landing-button {
+  background-color: black;
+  border-radius: 0.25rem;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  height: 2.5rem;
+  margin: 0.5rem;
+  border: 0px;
+  width: 60%
+}
+
+.address-bar {
+  padding: 0 1.5rem;
+  text-align: left;
+  margin: 2.5rem;
+  background-color: rgb(29, 34, 44);
+  min-height: 12.5rem;
+  border: 0px;
+  border-radius: 1.25rem;
+  width: 60%;
+}
+
+.address-bar h3 {
+  word-wrap: break-word;
+}
+
+.balances {
+  display: flex;
+  min-height: 12.5rem;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: row;
+  width: 60%;
+
+}
+
+.balances-staked {
+  padding: 1.5rem;
+  text-align: left;
+  margin: 1.25rem;
+  background-color: darkblue;
+  height: 12.5rem;
+  border: 0px;
+  border-radius: 1.25rem;
+  width: 15rem;
+}
+
+.balances-token {
+  padding: 1.5rem;
+  text-align: left;
+  margin: 1.25rem;
+  background-color: rgb(15, 15, 97);
+  height: 12.5rem;
+  border: 0px;
+  border-radius: 1.25rem;
+  width: 15rem;
+}
+
+.tools-options {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+
+}
+
+.tools-stake {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  margin: 2.5rem;
+
+}
+
+.tools-stake-entry {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0.5rem;
+  
+}
+
+.tools-stake-entry input {
+  background-color: antiquewhite;
+  border-radius: 0.25rem 0 0 0.25rem;
+  align-items: center;
+  color: grey;
+  cursor: text;
+  width: 80%;
+  height: 2.5rem;
+  font-size: 15px;
+  font-weight: 200
+}
+
+.tools-stake-entry button {
+  background-color: black;
+  border-radius: 0 0.25rem 0.25rem 0;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  width: 20%;
+  height: 3rem;
+  border: 0px;
+}
+
+.tools-transfer-token {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  margin: 2.5rem;
+}
+
+.tools-transfer-token input {
+  background-color: antiquewhite;
+  border-radius: 0.25rem;
+  align-items: center;
+  color: grey;
+  cursor: text;
+  height: 2.5rem;
+  margin: 0.5rem;
+  font-size: 15px;
+  font-weight: 200
+}
+
+.tools-transfer-token button {
+  background-color: black;
+  border-radius: 0.25rem;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  height: 2.5rem;
+  margin: 0.5rem;
+  border: 0px;
+}
+

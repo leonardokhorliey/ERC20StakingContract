@@ -1,0 +1,1 @@
+export const contactAddress = '0xe88f53a585eD38551E0b305a56f8322E0CF33d93'
