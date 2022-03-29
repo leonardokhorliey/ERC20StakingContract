@@ -16,9 +16,9 @@ npx hardhat help
 
 # Contract Addresses
 
-Staker.sol -  https://rinkeby.etherscan.io/address/0xe88f53a585eD38551E0b305a56f8322E0CF33d93
+StakerApp.sol -  https://rinkeby.etherscan.io/address/0x0A27A1645463eEEdA68DCd3bdad8eA7c74ED41Aa
 
-BubToken.sol (ERC20 Token) - https://rinkeby.etherscan.io/address/0x9FC82946dcdaCD65eC2415b15114Af241Ec6E0Ca
+BubToken.sol (ERC20 Token) - https://rinkeby.etherscan.io/address/0x5e5d217DcD7dA5Cb95890cf8716e463eC8bb7a35
 
 
 # Live URL
