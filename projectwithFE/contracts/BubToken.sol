@@ -93,7 +93,7 @@ contract BubToken is ERC20Interface, SafeMath {
     }
 
     function approve(address spender, uint tokens) public override returns (bool success) {
-        allowed[msg.sender][spender] = tokens;
+        allowed[spender][msg.sender] = tokens;
         emit Approval(msg.sender, spender, tokens);
         return true;
     }

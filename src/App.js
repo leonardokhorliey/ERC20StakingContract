@@ -16,6 +16,7 @@ function App() {
   const [stakeContract, setStakeContract] = useState({});
 
 
+
   const init = async () => {
     let provider = window.ethereum;
     console.log(provider);
@@ -64,9 +65,9 @@ function App() {
     <div className="App">
       <header className="App-header">
 
-        {loaded == 0 && <Landing launchApp = {init} /> }
-        {loaded == 1 && loadPage }
-        {loaded == 2 && <DashBoard selectedAccount = {selectedAccount} stakeyContract = {stakeContract}
+        {loaded === 0 && <Landing launchApp = {init} /> }
+        {loaded === 1 && loadPage }
+        {loaded === 2 && <DashBoard selectedAccount = {selectedAccount} stakeyContract = {stakeContract}
         />
         }
         

@@ -39,10 +39,13 @@ contract StakerApp is Ownable{
     }
 
     function stakeToken(uint numOfTokens) public {
-        require(numOfTokens <= bubToken.balanceOf(msg.sender), 'Not enough tokens');
-        require(numOfTokens > 0, 'Supply value greater than zero');
-        bubToken.transferFrom(msg.sender, address(this), numOfTokens);
-        stakingBalance[msg.sender] += numOfTokens;
+        require(numOfTokens > 0, 'Supply value less than zero');
+        uint8 dec = bubToken._decimals();
+        uint lowestForm = numOfTokens * 10 ** dec;
+        require(lowestForm <= bubToken.balanceOf(msg.sender), 'Not enough tokens');
+        bubToken.approve(msg.sender, numOfTokens * 10 ** dec);
+        bubToken.transferFrom(msg.sender, address(this), numOfTokens * 10 ** dec);
+        stakingBalance[msg.sender] += numOfTokens * 10 ** dec;
         if (!hasStaked[msg.sender]) {
             stakersArrayIndexes[msg.sender] = stakers.length;
             stakers.push(msg.sender);
@@ -51,9 +54,11 @@ contract StakerApp is Ownable{
     }
 
     function unstakeToken(uint numOfTokens) public {
-        require(numOfTokens <= stakingBalance[msg.sender], "You haven't staked up to this amount before.");
-        bubToken.transfer(msg.sender, numOfTokens);
-        stakingBalance[msg.sender] -= numOfTokens;
+        uint8 dec = bubToken._decimals();
+        uint lowestForm = numOfTokens * 10 ** dec;
+        require(lowestForm <= stakingBalance[msg.sender], "You haven't staked up to this amount before.");
+        bubToken.transfer(msg.sender, lowestForm);
+        stakingBalance[msg.sender] -= lowestForm;
         if (stakingBalance[msg.sender] == 0) {
             removeElementfromStakers(stakersArrayIndexes[msg.sender]);
             hasStaked[msg.sender] = false;
@@ -80,9 +85,12 @@ contract StakerApp is Ownable{
     }
 
     function transferTokens(address to, uint amount) public {
+        uint8 dec = bubToken._decimals();
+        uint lowestForm = amount * 10 ** dec;
         uint tokenBalance = getTokenBalance();
-        require(amount <= tokenBalance, "You don't have sufficient tokens");
-        bubToken.transfer(to, amount);
+        require(lowestForm <= tokenBalance, "You don't have sufficient tokens");
+        bubToken.approve(msg.sender, lowestForm);
+        bubToken.transferFrom(msg.sender, to, lowestForm);
         
     }
 }

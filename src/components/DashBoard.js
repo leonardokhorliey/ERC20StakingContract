@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react"
 import Web3 from 'web3/dist/web3.min.js';
-import StakerContract from '../StakerApp.json'
-import { contactAddress } from '../contractAddress';
 
 
 const DashBoard = ({selectedAccount, stakeyContract}) => {
@@ -18,9 +16,9 @@ const DashBoard = ({selectedAccount, stakeyContract}) => {
     useEffect(()=> {
         console.log(stakeyContract)
 
-        tokenStaked().then((p) => setAmountStaked(p))
+        tokenStaked().then((p) => setAmountStaked(p/ (10**18)))
         tokensBalance().then((p) => setTokenBalance(p/ (10**18)))
-    }, [])
+    })
 
     const tokensBalance = async () => {
     
@@ -159,7 +157,7 @@ const DashBoard = ({selectedAccount, stakeyContract}) => {
                 </label>
                 <div className= "tools-stake-entry">
                     <input placeholder= "Enter amount to stake" value= {unStakeAmount} onChange={(e)=> setUnStakeAmount(e.target.value)} />
-                    <button onClick= {unStake}>
+                    <button onClick= {() => unStake(unStakeAmount)}>
                         Unstake
                     </button>
                 </div>
